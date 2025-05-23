@@ -1,0 +1,19 @@
+[package]
+name = "nvd-cpe"
+edition = "2021"
+description = "A rust implementation of the nvd-cpe."
+homepage = "https://github.com/emo-crab/scap-rs"
+repository = "https://github.com/emo-crab/scap-rs"
+authors = ["Kali-Team <root@kali-team.cn>"]
+readme = "README.md"
+license.workspace = true
+version = "0.1.1"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+chrono = { version = "0.4", default-features = false, features = ["serde"] }
+percent-encoding = "2.1"
+version-compare = "0.2"
+language-tags = { version = "0.3", features = ["serde"] }
+thiserror = "2.0"

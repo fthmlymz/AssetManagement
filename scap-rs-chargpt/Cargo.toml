@@ -1,0 +1,45 @@
+[workspace.package]
+#name = "scap-rs" #改这个
+version = "0.1.0"
+edition = "2021"
+authors = ["Kali-Team <root@kali-team.cn>"]
+include = ["LICENSE", "Cargo.toml", "src/**/*.rs"]
+license-file = "LICENSE"
+license = "GPL-3.0-only"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+members = ["nvd-api", "nvd-cpe", "nvd-cves", "nvd-cvss", "nvd-cwe", "helper", "nvd-server", "nvd-yew", "nvd-model", "cnvd"]
+exclude = ["nvd-cpe/schema"]
+resolver = "2"
+
+#https://github.com/johnthagen/min-sized-rust
+[profile.release]
+opt-level = "z"     # Optimize for size.
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce number of codegen units to increase optimizations.
+panic = "abort"     # Abort on panic
+strip = true        # Automatically strip symbols from the binary.
+
+[profile.dev.package."*"]
+opt-level = 3
+[profile.test]
+opt-level = 3
+lto = "thin"
+
+[profile.bench]
+lto = true
+codegen-units = 1
+opt-level = 3
+
+[workspace.dependencies]
+nvd-cves = { path = "nvd-cves", version = "0.1.1" }
+nvd-cpe = { path = "nvd-cpe", version = "0.1.0" }
+nvd-cvss = { path = "nvd-cvss", version = "0.1.0" }
+nvd-cwe = { path = "nvd-cwe", version = "0.1.0" }
+
+[patch.crates-io]
+nvd-cves = { path = "nvd-cves", version = "0.1.1" }
+nvd-cpe = { path = "nvd-cpe", version = "0.1.0" }
+nvd-cvss = { path = "nvd-cvss", version = "0.1.0" }
+nvd-cwe = { path = "nvd-cwe", version = "0.1.0" }

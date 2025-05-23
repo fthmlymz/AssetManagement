@@ -1,0 +1,6 @@
+[build]
+target = "nvd-yew/index.html"
+dist = "dist"
+
+[[proxy]]
+backend = "https://scap.kali-team.cn/api/"

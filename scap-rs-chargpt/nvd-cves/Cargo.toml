@@ -1,0 +1,19 @@
+[package]
+name = "nvd-cves"
+edition = "2021"
+description = "A rust implementation of the nvd-cve."
+homepage = "https://github.com/emo-crab/scap-rs"
+repository = "https://github.com/emo-crab/scap-rs"
+authors = ["Kali-Team <root@kali-team.cn>"]
+readme = "README.md"
+license.workspace = true
+version = "0.1.1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+chrono = { version = "0.4", default-features = false, features = ["serde"] }
+nvd-cpe.workspace = true
+nvd-cvss.workspace = true
+thiserror = "2.0"

@@ -1,0 +1,16 @@
+[package]
+name = "nvd-cvss"
+edition = "2021"
+description = "A rust implementation of the nvd-cvss."
+homepage = "https://github.com/emo-crab/scap-rs"
+repository = "https://github.com/emo-crab/scap-rs"
+authors = ["Kali-Team <root@kali-team.cn>"]
+readme = "README.md"
+license.workspace = true
+version = "0.1.1"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+thiserror = "2.0"

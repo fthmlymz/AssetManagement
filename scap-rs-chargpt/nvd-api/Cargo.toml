@@ -1,0 +1,22 @@
+[package]
+name = "nvd-api"
+edition = "2021"
+description = "A rust implementation of the nvd-api."
+homepage = "https://github.com/emo-crab/scap-rs"
+repository = "https://github.com/emo-crab/scap-rs"
+authors = ["Kali-Team <root@kali-team.cn>"]
+readme = "README.md"
+license.workspace = true
+version = "0.1.1"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = { version = "0.12", features = ["json", "cookies", "gzip", "native-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+uuid = { version = "1.3.3", features = ["v4"] }
+nvd-cvss.workspace = true
+nvd-cves.workspace = true
+chrono = { version = "0.4", default-features = false, features = ["serde"] }
+derive_builder = "0.20.0"

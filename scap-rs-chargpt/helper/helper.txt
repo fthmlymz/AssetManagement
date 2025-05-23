@@ -1,0 +1,62 @@
+0.cargo run -p helper -- help
+
+
+1. cargo run -p helper -- cve --help
+
+* JSON dosyasından CVE verisi yüklemek (--path)
+cargo run -p helper -- cve --path ./tests/data/nvdcve-1.1-2023.json.gz
+
+* NVD API üzerinden doğrudan CVE güncellemesi (--api)
+cargo run -p helper -- cve --api
+
+* NVD API üzerinden son X saatin CVE verisini çekmek (--hours)
+cargo run -p helper -- cve --hours 48
+
+* Belirli bir CVE ID ile veri çekmek (--id)
+cargo run -p helper -- cve --id CVE-2001-0328
+
+* CNNVD API üzerinden güncelleme yapmak (--cnnvd-api)
+cargo run -p helper -- cve --cnnvd-api
+
+
+
+2. cargo run -p helper -- cwe --help
+* XML ZIP dosyasından CWE verisi yüklemek (--path)
+cargo run -p helper -- cwe --path ./tests/data/cwec_latest.xml.zip
+
+* JSON dosyasından CWE verisi yüklemek (--json)
+cargo run -p helper -- cwe --json ./tests/data/cwe.json
+
+
+3. cargo run -p helper -- cpe --help
+* --path ile CPE verisi yükleme
+cargo run -p helper -- cpe --path ./tests/data/official-cpe-dictionary_v2.3.xml.gz
+
+
+
+4. cargo run -p helper -- kb --help
+* CSV Dosyasından KB Verisi Yüklemek (--path)
+cargo run -p helper -- kb --path ./tests/data/files_exploits.csv
+
+* Nuclei Template Klasöründen KB Verisi Almak (--template)
+cargo run -p helper -- kb --template ./tests/data/nuclei-templates/
+
+* Nuclei Template'leri Otomatik Olarak API'den Güncellemek (--api)
+cargo run -p helper -- kb --api
+
+* AttackerKB API'sinden Bilgi Çekmek (--akb)
+cargo run -p helper -- kb --akb
+
+
+
+5. cargo run -p helper -- sync --help
+* CVE Verilerini Senkronize Et (--cve)
+cargo run -p helper -- sync --cve
+
+* KB Verilerini Senkronize Et (--kb)
+cargo run -p helper -- sync --kb
+
+* Her İkisini Aynı Anda Senkronize Et (--cve --kb)
+cargo run -p helper -- sync --cve --kb
+
+
